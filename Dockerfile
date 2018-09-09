@@ -30,3 +30,5 @@ RUN git clone --depth 1 git://git.alpinelinux.org/aports
 RUN git -C aports config --local core.hooksPath .githooks
 RUN abuild-keygen -a -i -n
 
+WORKDIR "/home/${user}/aports"
+
