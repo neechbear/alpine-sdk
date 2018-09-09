@@ -3,6 +3,7 @@
 # https://hub.docker.com/_/alpine/
 FROM alpine:latest
 
+ARG uid=1000
 ARG user="nicolaw"
 ARG user_name="Nicola Worthington"
 ARG user_email="nicolaw@tfb.net"
@@ -13,7 +14,7 @@ RUN mkdir -pv /var/cache/distfiles
 RUN chmod g+w /var/cache/distfiles
 RUN chgrp abuild /var/cache/distfiles
 
-RUN adduser -s /bin/bash -h "/home/${user}" -D "${user}"
+RUN adduser -u "${uid}" -s /bin/bash -h "/home/${user}" -D "${user}"
 RUN addgroup "${user}" abuild
 RUN chown -R "${user}" "/home/${user}/"
 
