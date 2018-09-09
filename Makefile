@@ -8,6 +8,7 @@ DEFAULT_GOAL = run
 run:
 	docker run --rm -it \
 		-v "${HOME}/src/aports:${HOME}/aports" \
+		-v "${HOME}/.abuild:${HOME}/.abuild" \
 		-v "${HOME}/.ssh:${HOME}/.ssh" \
 		--name $(NAME) $(TAG) bash
 
